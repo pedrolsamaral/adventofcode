@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+    function solveAll() {
+        var example1Result = calculateRealIdSum(example1);
+        var puzzle1Result = calculateRealIdSum(puzzleInput);
+        var example2Result = findHqId(example2);
+        var puzzle2Result = findHqId(puzzleInput);
+
+        document.getElementById("example1").textContent = example1Result;
+        document.getElementById("puzzle1").textContent = puzzle1Result;
+    }
+    </script>
+</head>
+
+<body onload="solveAll()">
+    <span>Example: </span>
+    <span id="example1"></span>
+    </p>
+    <span>Sum of IDs:</span>
+    <span id="puzzle1"></span>
+    </p>
+    <span>Example 2: Check console logs</span>
+    <span id="example2"></span>
+    </p>
+    <span>HQ ID: Check console logs</span>
+    <span id="puzzle2"></span>
+</body>
+
+</html>
