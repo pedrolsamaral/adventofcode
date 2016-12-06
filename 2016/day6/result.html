@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+    function solveAll() {
+        var example1Result = retrieveMaxRealWord(example1);
+        var puzzle1Result = retrieveMaxRealWord(puzzleInput);
+        var example2Result = retrieveMinRealWord(example1);
+        var puzzle2Result = retrieveMinRealWord(puzzleInput);
+
+        document.getElementById("example1").textContent = example1Result;
+        document.getElementById("puzzle1").textContent = puzzle1Result;
+        document.getElementById("example2").textContent = example2Result;
+        document.getElementById("puzzle2").textContent = puzzle2Result;
+    }
+    </script>
+</head>
+
+<body onload="solveAll()">
+    <span>Example: </span>
+    <span id="example1"></span>
+    </p>
+    <span>Real word w/ max letters:</span>
+    <span id="puzzle1"></span>
+    </p>
+    <span>Example 2:</span>
+    <span id="example2"></span>
+    </p>
+    <span>Real word w/ min letters:</span>
+    <span id="puzzle2"></span>
+</body>
+
+</html>
