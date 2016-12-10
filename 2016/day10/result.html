@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+    function solveAll() {
+        var example1Result = findBot(example1, 5, 2);
+        var puzzle1Result = findBot(puzzleInput, 61, 17);
+        var puzzle2Result = checkOutputValue(puzzleInput);
+
+        document.getElementById("puzzle2").textContent = puzzle2Result;
+    }
+    </script>
+</head>
+
+<body onload="solveAll()">
+    <span>Example: Check logs </span>
+    <span id="example1"></span>
+    </p>
+    <span>Bot with 61 and 17: Check logs</span>
+    <span id="puzzle1"></span>
+    </p>
+    <span>Output multiply:</span>
+    <span id="puzzle2"></span>
+</body>
+
+</html>

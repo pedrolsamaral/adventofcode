@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+    function solveAll() {
+        var example1Result = coundLitPixels(example1, 7, 3);
+        var puzzle1Result = coundLitPixels(puzzleInput, 50, 6);
+
+        document.getElementById("example1").textContent = example1Result;
+        document.getElementById("puzzle1").textContent = puzzle1Result;
+    }
+    </script>
+</head>
+
+<body onload="solveAll()">
+    <span>Example: </span>
+    <span id="example1"></span>
+    </p>
+    <span>Display lit count:</span>
+    <span id="puzzle1"></span>
+    </p>
+    <span>Puzzle 2: Check logs</span>
+    <span id="puzzle2"></span>
+</body>
+
+</html>
