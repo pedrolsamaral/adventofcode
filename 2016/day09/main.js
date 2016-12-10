@@ -25,22 +25,17 @@ function decompressAndCount(input) {
     return result.replace(/ /g, "").length;
 }
 
-function justCount(input, currCount) {
+function justCount(input) {
     var count = 0, i = 0;
     while (i < input.length) {
-        var length = 1,
-            repetitions = 1;
         if (input[i] === '(') {
-            i++;
-            length = /\d+/.exec(input.substring(i))[0];
-            i += length.length + 1;
-            repetitions = /\d+/.exec(input.substring(i))[0];
-            i += repetitions.length + 1;
-            count += repetitions * justCount(input.substr(i, length), count);
+            var info = /\((\d+)x(\d+)\)/.exec(input.substring(i, input.indexOf(')', i) + 1));
+            count += info[2] * justCount(input.substr(i + info[0].length, info[1]));
+            i += info[0].length + parseInt(info[1]);
         } else {
             count++;
+            i++;
         }
-        i += parseInt(length);
     }
     return count;
 }
