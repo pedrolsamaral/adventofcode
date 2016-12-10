@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+    function solveAll() {
+        /*var example1Result = decompressAndCount("ADVENT");
+        var example2Result = decompressAndCount("A(1x5)BC");
+        var example3Result = decompressAndCount("(3x3)XYZ");
+        var example4Result = decompressAndCount("A(2x2)BCD(2x2)EFG");
+        var example5Result = decompressAndCount("(6x1)(1x3)A");
+        var example6Result = decompressAndCount("X(8x2)(3x3)ABCY");
+        var puzzle1Result = decompressAndCount(puzzleInput);*/
+        var example7Result = justCount("(3x3)XYZ", 0);
+        var example8Result = justCount("X(8x2)(3x3)ABCY", 0);
+        var example9Result = justCount("(27x12)(20x12)(13x14)(7x10)(1x12)A", 0);
+        var example10Result = justCount("(25x3)(3x3)ABC(2x3)XY(5x2)PQRSTX(18x9)(3x2)TWO(5x7)SEVEN", 0);
+        var puzzle2Result = justCount(puzzleInput);
+
+        /*document.getElementById("example1").textContent = example1Result;
+        document.getElementById("example2").textContent = example2Result;
+        document.getElementById("example3").textContent = example3Result;
+        document.getElementById("example4").textContent = example4Result;
+        document.getElementById("example5").textContent = example5Result;
+        document.getElementById("example6").textContent = example6Result;
+        document.getElementById("puzzle1").textContent = puzzle1Result;*/
+        document.getElementById("example7").textContent = example7Result;
+        document.getElementById("example8").textContent = example8Result;
+        document.getElementById("example9").textContent = example9Result;
+        document.getElementById("example10").textContent = example10Result;
+        document.getElementById("puzzle2").textContent = puzzle2Result;
+    }
+    </script>
+</head>
+
+<body onload="solveAll()">
+    <span>Example 1.1: </span>
+    <span id="example1"></span>
+    </p>
+    <span>Example 1.2: </span>
+    <span id="example2"></span>
+    </p>
+    <span>Example 1.3: </span>
+    <span id="example3"></span>
+    </p>
+    <span>Example 1.4: </span>
+    <span id="example4"></span>
+    </p>
+    <span>Example 1.5: </span>
+    <span id="example5"></span>
+    </p>
+    <span>Example 1.6 : </span>
+    <span id="example6"></span>
+    </p>
+    <span>Puzzle 1:</span>
+    <span id="puzzle1"></span>
+    </p>
+    <span>Example 2.1 : </span>
+    <span id="example7"></span>
+    </p>
+    <span>Example 2.2 : </span>
+    <span id="example8"></span>
+    </p>
+    <span>Example 2.3 : </span>
+    <span id="example9"></span>
+    </p>
+    <span>Example 2.4 : </span>
+    <span id="example10"></span>
+    </p>
+    <span>Puzzle 2: Check logs</span>
+    <span id="puzzle2"></span>
+</body>
+
+</html>
