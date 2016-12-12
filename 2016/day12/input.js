@@ -1,4 +1,4 @@
-var example1 = ["cpy 3 a",
+var example1 = ["cpy 41 a",
     "inc a",
     "inc a",
     "dec a",
