@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+    function solveAll() {
+        var example1Result = countTlsIps(example1);
+        var puzzle1Result = countTlsIps(puzzleInput);
+
+        document.getElementById("example1").textContent = example1Result;
+        document.getElementById("puzzle1").textContent = puzzle1Result;
+    }
+    </script>
+</head>
+
+<body onload="solveAll()">
+    <span>Example: </span>
+    <span id="example1"></span>
+    </p>
+    <span>TLS IPs:</span>
+    <span id="puzzle1"></span>
+    </p>
+    <span>Example 2:</span>
+    <span id="example2"></span>
+    </p>
+    <span>Real word w/ min letters:</span>
+    <span id="puzzle2"></span>
+</body>
+
+</html>
