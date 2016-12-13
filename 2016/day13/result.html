@@ -5,12 +5,13 @@
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript">
     function solveAll() {
-        //printLabyrinth(1362, 40, 40, 1, 1, []);
-        //var example1Result = calculateMinSteps(10, 0, 1, 1, 7, 4, [], {});
-        var puzzleResult = calculateMinSteps(1362, 0, 1, 1, 31, 39, [], {});
+        var example1Result = calculateMinSteps(10, 0, 1, 1, 7, 4, [], {});
+        var puzzle1Result = calculateMinSteps(1362, 0, 1, 1, 31, 39, [], {});
+        var puzzle2Result = calculateMaxCoverage(1362, 0, 1, 1, 50, [], {});
 
-        //document.getElementById("example1").textContent = example1Result;
-        document.getElementById("puzzle1").textContent = puzzleResult;
+        document.getElementById("example1").textContent = example1Result;
+        document.getElementById("puzzle1").textContent = puzzle1Result;
+        document.getElementById("puzzle2").textContent = puzzle2Result;
     }
     </script>
 </head>
