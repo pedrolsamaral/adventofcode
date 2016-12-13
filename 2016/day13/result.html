@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+    function solveAll() {
+        //printLabyrinth(1362, 40, 40, 1, 1, []);
+        //var example1Result = calculateMinSteps(10, 0, 1, 1, 7, 4, [], {});
+        var puzzleResult = calculateMinSteps(1362, 0, 1, 1, 31, 39, [], {});
+
+        //document.getElementById("example1").textContent = example1Result;
+        document.getElementById("puzzle1").textContent = puzzleResult;
+    }
+    </script>
+</head>
+
+<body onload="solveAll()">
+    <span>Example: </span>
+    <span id="example1"></span>
+    </p>
+    <span>Puzzle 1:</span>
+    <span id="puzzle1"></span>
+    </p>
+    <span>Puzzle 2:</span>
+    <span id="puzzle2"></span>
+    </p>
+</body>
+
+</html>
