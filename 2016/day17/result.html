@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="md5.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+    function solveAll() {
+        console.log("Example1:")
+        var example1Result = {
+            steps: 100000
+        };
+        calculateMinSteps("ihgpwlah", 0, 0, "", 3, 3, example1Result);
+
+        console.log("Example2:")
+        var example2Result = {
+            steps: 100000
+        };
+        calculateMinSteps("kglvqrro", 0, 0, "", 3, 3, example2Result);
+
+        console.log("Example3:")
+        var example3Result = {
+            steps: 100000
+        };
+        calculateMinSteps("ulqzkmiv", 0, 0, "", 3, 3, example3Result);
+
+        console.log("Puzzle1:")
+        var puzzle1Result = {
+            steps: 100000
+        };
+        calculateMinSteps("qtetzkpl", 0, 0, "", 3, 3, puzzle1Result);
+
+        console.log("Example4:")
+        var example4Result = {
+            steps: 0
+        };
+        calculateMaxSteps("ihgpwlah", 0, 0, "", 3, 3, example4Result);
+
+        console.log("Example5:")
+        var example5Result = {
+            steps: 0
+        };
+        calculateMaxSteps("kglvqrro", 0, 0, "", 3, 3, example5Result);
+
+        console.log("Example6:")
+        var example6Result = {
+            steps: 0
+        };
+        calculateMaxSteps("ulqzkmiv", 0, 0, "", 3, 3, example6Result);
+
+        console.log("Puzzle2:")
+        var puzzle2Result = {
+            steps: 0
+        };
+        calculateMaxSteps("qtetzkpl", 0, 0, "", 3, 3, puzzle2Result);
+
+
+        document.getElementById("example1").textContent = example1Result.path;
+        document.getElementById("example2").textContent = example2Result.path;
+        document.getElementById("example3").textContent = example3Result.path;
+        document.getElementById("puzzle1").textContent = puzzle1Result.path;
+
+        document.getElementById("example4").textContent = example4Result.steps;
+        document.getElementById("example5").textContent = example5Result.steps;
+        document.getElementById("example6").textContent = example6Result.steps;
+        document.getElementById("puzzle2").textContent = puzzle2Result.steps;
+    }
+    </script>
+</head>
+
+<body onload="solveAll()">
+    <span>Example1: </span>
+    <span id="example1"></span>
+    </p>
+    <span>Example2: </span>
+    <span id="example2"></span>
+    </p>
+    <span>Example3: </span>
+    <span id="example3"></span>
+    </p>
+    <span>Puzzle 1:</span>
+    <span id="puzzle1"></span>
+    </p>
+    <span>Example4: </span>
+    <span id="example4"></span>
+    </p>
+    <span>Example5: </span>
+    <span id="example5"></span>
+    </p>
+    <span>Example6: </span>
+    <span id="example6"></span>
+    </p>
+    <span>Puzzle 2:</span>
+    <span id="puzzle2"></span>
+    </p>
+</body>
+
+</html>
