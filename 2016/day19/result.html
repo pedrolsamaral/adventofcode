@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript">
+    function solveAll() {
+        var example1Result = findLowestAllowed(example1Input);
+        var puzzle1Result = findLowestAllowed(puzzleInput);
+        var example2Result = findAllowedSize(example1Input, 9);
+        var puzzle2Result = findAllowedSize(puzzleInput, 4294967295);
+
+        document.getElementById("example1").textContent = example1Result;
+        document.getElementById("puzzle1").textContent = puzzle1Result;
+        document.getElementById("example2").textContent = example2Result;
+        document.getElementById("puzzle2").textContent = puzzle2Result;
+    }
+    </script>
+</head>
+
+<body onload="solveAll()">
+    <span>Example1: </span>
+    <span id="example1"></span>
+    </p>
+    <span>Example2: </span>
+    <span id="example2"></span>
+    </p>
+    <span>Puzzle 1:</span>
+    <span id="puzzle1"></span>
+    </p>
+    <span>Puzzle 2:</span>
+    <span id="puzzle2"></span>
+    </p>
+</body>
+
+</html>
