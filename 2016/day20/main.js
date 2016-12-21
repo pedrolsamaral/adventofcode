@@ -43,13 +43,29 @@ function rotatePositions(word, x) {
     return result;
 }
 
+/*0: > 1 -> 1 
+1: > 1 + 1 -> 3 
+2: > 1 + 2 -> 5 % 5 = 0 
+3: > 1 + 3 -> 7 % 5 = 2 
+4: > 1 + 4 + 1 -> 10 % 5 = 0
+
+0: > 1 -> 1
+1: > 1 + 1 -> 3
+2: > 1 + 2 -> 5 = 5
+3: > 1 + 3 -> 7 = 7
+4: > 1 + 4 + 1 -> 10 % 8 = 2
+5: > 1 + 5 + 1 -> 12 % 8 = 4
+6: > 1 + 6 + 1 -> 14 % 8 = 6
+7: > 1 + 6 + 1 -> 16 % 8 = 0*/
+
 function rotatePositionsInverse(word, x) {
-    var indexOf = word.indexOf(x);
+    var possibleRotations = { 5: [2, 0, 3, 1, null], 8: [1, 3, 5, 7, 2, 4, 6, 0] };
+    var indexOf = possibleRotations[word.length][word.indexOf(x)];
     var result = rotateLeft(word, 1);
-    result = rotateLeft(result, indexOf);
     if (indexOf > 3) {
         result = rotateLeft(result, 1);
     }
+    result = rotateLeft(result, indexOf);
     return result;
 }
 
@@ -99,7 +115,7 @@ function scrambleWord(word, commands) {
 }
 
 function unscrambleWord(word, commands) {
-var result = word.split('');
+    var result = word.split('');
     commands.reverse().forEach(function(command) {
         var info;
         switch (commandRegex.exec(command)[1]) {
