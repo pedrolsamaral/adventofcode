@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript">
+    function solveAll() {
+        var puzzle1Result = countTotalViablePairs(puzzleInput);
+        var puzzle2Result = moveData(puzzleInput);
+
+        document.getElementById("puzzle1").textContent = puzzle1Result;
+        document.getElementById("puzzle2").textContent = puzzle2Result;
+    }
+    </script>
+</head>
+
+<body onload="solveAll()">
+    <span>Puzzle 1:</span>
+    <span id="puzzle1"></span>
+    </p>
+    <span>Puzzle 2:</span>
+    <span id="puzzle2"></span>
+    </p>
+</body>
+
+</html>
