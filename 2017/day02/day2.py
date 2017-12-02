@@ -5,18 +5,18 @@ def read_sheet():
     return result
 
 def sheet_checksum():
-    sum = 0
+    result = 0
     for row in read_sheet():
-        sum += max(row) - min(row)
-    return sum
+        result += max(row) - min(row)
+    return result
 
 def sheet_divibles():
-    sum = 0
+    result = 0
     for row in read_sheet():
         for i in row:
             for j in row:
                 sum += (i // j) if (i != j and i%j == 0) else 0    
-    return sum
+    return result
 
 
 print(sheet_checksum())
