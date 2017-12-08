@@ -68,30 +68,34 @@ def sum_all_child(program):
 
 
 def get_children_weight(program):
-    return map(lambda x: x.weight, program.children)
+    return map(lambda x: x.total_weight, program.children)
 
 
 def get_wrong_child(program):
-    counter = collections.Counter(get_children_weight(program))
-    for c in counter.elements
-        if c.
-
-
-def find_wrong_program(program, parent):
-    if len(collections.Counter(get_children_weight(program)).keys()) == 1:
-        return (program, parent)
-    else:
-        # TODO: fIND WRONG
-        found = find_wrong_program(child, program)
+    counter = collections.Counter(get_children_weight(program)).most_common()
+    wrong_weight = counter[1][0]
+    for child in program.children:
+        if child.total_weight == wrong_weight:
+            return (child, counter[0][0] - wrong_weight)
     return None
 
+def find_wrong_program(program):
+    if len(collections.Counter(get_children_weight(program)).keys()) == 1:
+        return None
+    else:
+        wrong_child = get_wrong_child(program)
+        found = find_wrong_program(wrong_child[0])
+        if found is None:
+            return (wrong_child[0], wrong_child[1])
+        else:
+            return found
 
 def find_wrong_weight():
     programs = read_programs()
     parent_node = sum_all_child(build_sub_tree(find_root(programs), programs))
-    curr_node = parent_node
-    return find_wrong_program(tree, None)
+    wrong_weight = find_wrong_program(parent_node)
+    return int(wrong_weight[0].weight) + wrong_weight[1]
 
 
-# print(find_root(read_programs()).name)
+print(find_root(read_programs()).name)
 print(find_wrong_weight())
