@@ -1,5 +1,6 @@
 import re
 
+
 class Instruction:
     letter = None
     operation = None
@@ -7,6 +8,7 @@ class Instruction:
     compare = None
     right = None
     number = None
+
 
 def read_instructions():
     line_re = re.compile("(\\w+) (inc|dec) (-?\\d+) if (\\w+) (.+) (-?\\d+)")
@@ -24,11 +26,28 @@ def read_instructions():
         result.append(ins)
     return result
 
+
 def initialize_letters(instructions):
     result = {}
     for instruction in instructions:
         result[instruction.letter] = 0
-    return result 
+    return result
+
+
+def apply_instruction(letters, instruction, number):
+    if instruction.compare == "<":
+        letters[instruction.letter] += number if letters[instruction.left] < instruction.right else 0
+    elif instruction.compare == ">":
+        letters[instruction.letter] += number if letters[instruction.left] > instruction.right else 0
+    elif instruction.compare == "==":
+        letters[instruction.letter] += number if letters[instruction.left] == instruction.right else 0
+    elif instruction.compare == "!=":
+        letters[instruction.letter] += number if letters[instruction.left] != instruction.right else 0
+    elif instruction.compare == ">=":
+        letters[instruction.letter] += number if letters[instruction.left] >= instruction.right else 0
+    elif instruction.compare == "<=":
+        letters[instruction.letter] += number if letters[instruction.left] <= instruction.right else 0
+
 
 def process_instructions():
     instructions = read_instructions()
@@ -36,34 +55,13 @@ def process_instructions():
     largest = 0
     for instruction in instructions:
         if instruction.operation == "inc":
-            if instruction.compare == "<":
-                letters[instruction.letter] += instruction.number if letters[instruction.left] < instruction.right else 0
-            elif instruction.compare == ">":
-                letters[instruction.letter] += instruction.number if letters[instruction.left] > instruction.right else 0
-            elif instruction.compare == "==":
-                letters[instruction.letter] += instruction.number if letters[instruction.left] == instruction.right else 0
-            elif instruction.compare == "!=":
-                letters[instruction.letter] += instruction.number if letters[instruction.left] != instruction.right else 0                
-            elif instruction.compare == ">=":
-                letters[instruction.letter] += instruction.number if letters[instruction.left] >= instruction.right else 0
-            elif instruction.compare == "<=":
-                letters[instruction.letter] += instruction.number if letters[instruction.left] <= instruction.right else 0
+            apply_instruction(letters, instruction, instruction.number)
         if instruction.operation == "dec":
-            if instruction.compare == "<":
-                letters[instruction.letter] -= instruction.number if letters[instruction.left] < instruction.right else 0
-            elif instruction.compare == ">":
-                letters[instruction.letter] -= instruction.number if letters[instruction.left] > instruction.right else 0
-            elif instruction.compare == "==":
-                letters[instruction.letter] -= instruction.number if letters[instruction.left] == instruction.right else 0
-            elif instruction.compare == "!=":
-                letters[instruction.letter] -= instruction.number if letters[instruction.left] != instruction.right else 0                
-            elif instruction.compare == ">=":
-                letters[instruction.letter] -= instruction.number if letters[instruction.left] >= instruction.right else 0
-            elif instruction.compare == "<=":
-                letters[instruction.letter] -= instruction.number if letters[instruction.left] <= instruction.right else 0
-        curr_largest = find_largest(letters) 
-        largest = curr_largest if curr_largest > largest else largest        
+            apply_instruction(letters, instruction, -instruction.number)
+        curr_largest = find_largest(letters)
+        largest = curr_largest if curr_largest > largest else largest
     return (letters, largest)
+
 
 def find_largest(letters):
     largest = 0
@@ -71,11 +69,14 @@ def find_largest(letters):
         largest = size if size > largest else largest
     return largest
 
+
 def find_final_largest():
     return find_largest(process_instructions()[0])
 
+
 def find_overall_largest():
     return process_instructions()[1]
+
 
 print("Part 1")
 print(find_final_largest())
