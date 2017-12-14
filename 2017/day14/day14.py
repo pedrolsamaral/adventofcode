@@ -1,4 +1,3 @@
-import re
 from day10 import calculate_full_hash, initialize_array
 
 
@@ -34,14 +33,16 @@ def count_zeros(str_input):
 
 
 def expand_region(grid, i, j, region_num):
+    grid[i][j] = region_num
+
     if i > 0 and grid[i - 1][j] == 1:
-        grid[i - 1][j] = region_num
+        expand_region(grid, i - 1, j, region_num)
     if i < (len(grid) - 1) and grid[i + 1][j] == 1:
-        grid[i + 1][j] = region_num
+        expand_region(grid, i + 1, j, region_num)
     if j > 0 and grid[i][j - 1] == 1:
-        grid[i][j - 1] = region_num
+        expand_region(grid, i, j - 1, region_num)
     if j < (len(grid[i]) - 1) and grid[i][j + 1] == 1:
-        grid[i][j + 1] = region_num
+        expand_region(grid, i, j + 1, region_num)
 
 
 def count_regions(str_input):
@@ -51,13 +52,11 @@ def count_regions(str_input):
         for j in range(0, len(grid[i])):
             if grid[i][j] == 1:
                 result += 1
-                grid[i][j] = result
-            if grid[i][j] > 0:
-                expand_region(grid, i, j, grid[i][j])
-    return result
+                expand_region(grid, i, j, result)
+    return result - 1
 
 
 print("Part1")
-# print(count_zeros("nbysizxe"))
+print(count_zeros("nbysizxe"))
 print("Part2")
-print(count_regions("flqrgnkx"))
+print(count_regions("nbysizxe"))
