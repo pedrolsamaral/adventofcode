@@ -17,11 +17,11 @@ fun main(args: Array<String>) {
 fun readPartition(map: Array<Array<MutableList<Int>>>, it: String) {
     val regex = Regex("#(\\d+) @ (\\d+),(\\d+): (\\d+)x(\\d+)")
     val match = regex.find(it)
-    val id = match!!.groupValues.get(1).toInt()
-    val x = match!!.groupValues.get(2).toInt()
-    val y = match!!.groupValues.get(3).toInt()
-    val width = match!!.groupValues.get(4).toInt()
-    val height = match!!.groupValues.get(5).toInt()
+    val id = match!!.groupValues[1].toInt()
+    val x = match!!.groupValues[2].toInt()
+    val y = match!!.groupValues[3].toInt()
+    val width = match!!.groupValues[4].toInt()
+    val height = match!!.groupValues[5].toInt()
     for (i in x until (x + width)) {
         for (j in y until (y + height)) {
             map[i][j].add(id)
